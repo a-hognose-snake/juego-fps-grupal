@@ -16,9 +16,12 @@ public class SimpleShoot : MonoBehaviour
     [SerializeField] private Transform casingExitLocation;
 
     [Header("Settings")]
-    [Tooltip("Specify time to destory the casing object")] [SerializeField] private float destroyTimer = 2f;
-    [Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
-    [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
+    [Tooltip("Specify time to destory the casing object")] 
+    [SerializeField] private float destroyTimer = 2f;
+    [Tooltip("Bullet Speed")] 
+    [SerializeField] private float shotPower = 500f;
+    [Tooltip("Casing Ejection Speed")] 
+    [SerializeField] private float ejectPower = 150f;
 
 
     void Start()
@@ -32,11 +35,13 @@ public class SimpleShoot : MonoBehaviour
 
     void Update()
     {
-        //If you want a different input, change it here
-        if (Input.GetButtonDown("Fire1"))
+        //If you want a different input, change it here 
+        // Ahora dispara con el click izquierdo del mouse
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
+            Debug.Log("Mouse 0 ");
         }
     }
 
