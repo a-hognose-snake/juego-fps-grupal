@@ -28,6 +28,12 @@ public class SimpleShoot : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shootSound;
 
+    // Para la caja de balas
+    [Header("Bullet Box")]
+    //[SerializeField] private GameObject bulletBox;
+    // Cantidad de balas
+    [SerializeField] private int bullets = 15;
+
 
     void Start()
     {
@@ -42,7 +48,7 @@ public class SimpleShoot : MonoBehaviour
     {
         //If you want a different input, change it here 
         // Ahora dispara con el click izquierdo del mouse
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && bullets != 0)
         {
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
@@ -54,7 +60,10 @@ public class SimpleShoot : MonoBehaviour
     //This function creates the bullet behavior
     void Shoot()
     {
-        if (muzzleFlashPrefab)
+        // Logica de las balas
+        if(bullets != 0)
+        {
+            if (muzzleFlashPrefab)
         {
             //Create the muzzle flash
             GameObject tempFlash;
@@ -74,6 +83,16 @@ public class SimpleShoot : MonoBehaviour
         // Reproduce el sonido al instanciar la bala
         audioSource.clip = shootSound;
         audioSource.Play();
+
+        // Resta una bala
+        bullets--;
+
+        }
+        else{
+            Debug.Log("No hay balas");
+            return;
+        }
+
 
     }
 
