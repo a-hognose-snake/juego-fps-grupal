@@ -23,6 +23,11 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Casing Ejection Speed")] 
     [SerializeField] private float ejectPower = 150f;
 
+    // Para el sonido
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip shootSound;
+
 
     void Start()
     {
@@ -65,6 +70,10 @@ public class SimpleShoot : MonoBehaviour
 
         // Create a bullet and add force on it in direction of the barrel
         Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
+        
+        // Reproduce el sonido al instanciar la bala
+        audioSource.clip = shootSound;
+        audioSource.Play();
 
     }
 
