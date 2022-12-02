@@ -32,7 +32,7 @@ public class SimpleShoot : MonoBehaviour
     [Header("Bullet Box")]
     //[SerializeField] private GameObject bulletBox;
     // Cantidad de balas
-    [SerializeField] private int bullets = 15;
+    [SerializeField] [Range(0, 100)] private int bullets = 15;
 
 
     void Start()
@@ -52,7 +52,7 @@ public class SimpleShoot : MonoBehaviour
         {
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
-            Debug.Log("Mouse 0 ");
+            Debug.Log("Disparando");
         }
     }
 
@@ -89,7 +89,7 @@ public class SimpleShoot : MonoBehaviour
 
         }
         else{
-            Debug.Log("No hay balas");
+            Debug.Log("No quedan balas balas");
             return;
         }
 

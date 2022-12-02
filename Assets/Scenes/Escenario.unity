@@ -1592,6 +1592,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 848956227}
     m_Modifications:
     - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
+      propertyPath: bullets
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: shootSound
       value: 
       objectReference: {fileID: 8300000, guid: 24818e83a09644d4ab024218f7e8eb87, type: 3}
