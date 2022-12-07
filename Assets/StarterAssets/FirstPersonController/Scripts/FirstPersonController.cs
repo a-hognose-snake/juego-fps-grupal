@@ -57,9 +57,6 @@ namespace StarterAssets
 
 
 
-
-		
-
 		// cinemachine
 		private float _cinemachineTargetPitch;
 

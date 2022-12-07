@@ -33,6 +33,7 @@ public class SimpleShoot : MonoBehaviour
     //[SerializeField] private GameObject bulletBox;
     // Cantidad de balas
     [SerializeField] [Range(0, 100)] private int bullets = 15;
+    [SerializeField] public int points = 0;
 
 
     void Start()
@@ -53,6 +54,7 @@ public class SimpleShoot : MonoBehaviour
             //Calls animation on the gun that has the relevant animation events that will fire
             gunAnimator.SetTrigger("Fire");
             Debug.Log("Disparando");
+
         }
     }
 
@@ -123,6 +125,13 @@ public class SimpleShoot : MonoBehaviour
         {
             bullets = 100;
         }
+    }
+
+    //metodo para agregar puntos
+    public void AddPoints(int value)
+    {
+        this.points += value;
+        Debug.Log("Puntos: " + points);
     }
 
 }

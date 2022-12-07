@@ -6,6 +6,12 @@ TagManager:
   tags:
   - CinemachineTarget
   - BulletBox
+  - Target
+  - 7Target
+  - 8Target
+  - 9Target
+  - 10Target
+  - Bullet
   layers:
   - Default
   - TransparentFX
