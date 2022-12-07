@@ -56,6 +56,12 @@ namespace StarterAssets
 		[SerializeField] private SimpleShoot weapon;
 
 
+<<<<<<< HEAD
+=======
+
+
+		
+>>>>>>> parent of 14a555d (arregladas texturas y añadida musica)
 
 		// cinemachine
 		private float _cinemachineTargetPitch;
