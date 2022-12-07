@@ -115,4 +115,14 @@ public class SimpleShoot : MonoBehaviour
         Destroy(tempCasing, destroyTimer);
     }
 
+    // Funcion para recargar las balas (limita la carga a maximo 100 por player)
+    public void SetBullets()
+    {
+         bullets = bullets + 15;
+         if(bullets > 100)
+        {
+            bullets = 100;
+        }
+    }
+
 }

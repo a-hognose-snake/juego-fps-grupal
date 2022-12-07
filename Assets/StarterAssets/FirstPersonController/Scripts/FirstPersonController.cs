@@ -51,6 +51,13 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
+		// Referencia al script del arma
+		[Header("Weapon")]
+		[SerializeField] private SimpleShoot weapon;
+
+
+
+
 		
 
 		// cinemachine
@@ -110,6 +117,9 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			// busco en la escena el objeto que tiene el script SimpleShoot
+			weapon = FindObjectOfType<SimpleShoot>();
 		}
 
 		private void Update()
@@ -265,6 +275,17 @@ namespace StarterAssets
 
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
+		}
+
+		public void OnTriggerEnter(Collider other)
+		{
+			if (other.gameObject.CompareTag("BulletBox"))
+			{
+				Debug.Log("Estoy en intersección con: " + other.gameObject.name);
+				weapon.SetBullets();
+				Destroy(other.gameObject);
+			}
+
 		}
 	}
 }
