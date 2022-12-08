@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    private bool isDown = false;
+    public bool isActive = false;
 
     public void ToggleTarget()
     {
-        if(!isDown)
-        {
-            transform.Rotate(-90, 0, 0);
-            isDown = true;
-        }
-        else
-        {
-            transform.Rotate(90, 0, 0);
-        }
+        transform.Rotate(-90, 0, 0);
+        this.gameObject.GetComponent<AudioSource>().Play();
+        isActive = false;
+    }
+
+    public void ActivateTarget()
+    {
+        transform.Rotate(90, 0, 0);
+        isActive = true;
     }
 }

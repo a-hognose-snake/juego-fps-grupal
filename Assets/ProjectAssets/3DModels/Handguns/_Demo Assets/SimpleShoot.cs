@@ -32,7 +32,7 @@ public class SimpleShoot : MonoBehaviour
     [Header("Bullet Box")]
     //[SerializeField] private GameObject bulletBox;
     // Cantidad de balas
-    [SerializeField] [Range(0, 100)] private int bullets = 15;
+    [SerializeField] [Range(0, 100)] public int bullets = 15;
     [SerializeField] public int points = 0;
 
 

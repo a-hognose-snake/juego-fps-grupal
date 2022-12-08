@@ -8,7 +8,7 @@ public class Bell : MonoBehaviour
     public GameObject tooltip;
 
     public AudioSource audioSource;
-    public TargetManager targetManager;
+    public GameManager gameManager;
 
     private bool canInteract = false;
 
@@ -44,7 +44,7 @@ public class Bell : MonoBehaviour
             if (canInteract)
             {
                 audioSource.Play();
-                targetManager.ToggleAllTargets();
+                gameManager.StartGame();
             }
         }
     }

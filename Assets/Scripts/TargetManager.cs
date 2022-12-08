@@ -11,10 +11,24 @@ public class TargetManager : MonoBehaviour
         targets = FindObjectsOfType<Target>();
     }
 
-    public void ToggleAllTargets()
+    public void ActivateAllTargets()
     {
         for(int i = 0; i < targets.Length; i++) {
-            targets[i].ToggleTarget();
+            targets[i].ActivateTarget();
         }
+    }
+
+    public bool AreAllTargetsDown()
+    {
+        bool areAllTargetsDown = true;
+        foreach(Target target in targets)
+        {
+            if(target.isActive)
+            {
+                areAllTargetsDown = false;
+                break;
+            }
+        }
+        return areAllTargetsDown;
     }
 }

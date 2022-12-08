@@ -15,16 +15,17 @@ public class BulletCollision : MonoBehaviour
     {
         // busco en la escena el objeto que tiene el script SimpleShoot
 		weapon = FindObjectOfType<SimpleShoot>();
-        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("Target hit!");
             weapon.AddPoints(value);
-            Destroy(collision.gameObject);  
+            Destroy(collision.gameObject);
+
+            // derribar objetivo
+            this.gameObject.transform.parent.parent.gameObject.GetComponent<Target>().ToggleTarget();
         }
     }
 
